@@ -28,7 +28,6 @@ public class AlphaTaskService {
     public UrlGifResponse getExchangeRateGif(String currencyCode) {
         GiphyResponse giphyResponse;
         String status;
-
         // Получим курс за сегодня
         ExchangeRateResponse today = currencyRateClient.getExchangeRates(
                 exchangeAppId,
@@ -57,7 +56,7 @@ public class AlphaTaskService {
                     difference,
                     status,
                     giphyResponse.getData().getTitle(),
-                    giphyResponse.getData().getImage_original_url()
+                    giphyResponse.getData().getImage_original_url().replaceAll("media\\d", "i")
             );
         }
         if (difference < 0) {
@@ -71,7 +70,7 @@ public class AlphaTaskService {
                     difference,
                     status,
                     giphyResponse.getData().getTitle(),
-                    giphyResponse.getData().getImage_original_url()
+                    giphyResponse.getData().getImage_original_url().replaceAll("media\\d", "i")
             );
         }
         throw new EqualExchangeRateException("Так как курсы валют совпадают, невозможно получить gif.");
