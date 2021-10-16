@@ -1,5 +1,6 @@
 package com.application.alpha_task.handler;
 
+import com.application.alpha_task.exception.EqualExchangeRateException;
 import feign.*;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -60,6 +61,20 @@ public class AlphaTaskControllerHandler {
     ResponseEntity<String> handleMethodNotSupportedException(HttpRequestMethodNotSupportedException supportedException) {
         log.error(supportedException.getMessage());
         return new ResponseEntity<>(supportedException.getMessage(), HttpStatus.METHOD_NOT_ALLOWED);
+    }
+
+    @SneakyThrows
+    @ExceptionHandler(EqualExchangeRateException.class)
+    ResponseEntity<String> handleEqualExchangeRateException(EqualExchangeRateException equalExchangeRateException) {
+        log.error(equalExchangeRateException.getMessage());
+        return new ResponseEntity<>(equalExchangeRateException.getMessage(), HttpStatus.NO_CONTENT);
+    }
+
+    @SneakyThrows
+    @ExceptionHandler(NullPointerException.class)
+    ResponseEntity<String> handleNullPointerException(NullPointerException nullPointerException) {
+        log.error(nullPointerException.getMessage());
+        return new ResponseEntity<>(nullPointerException.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @SneakyThrows

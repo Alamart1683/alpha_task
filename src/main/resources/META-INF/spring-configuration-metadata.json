@@ -6,9 +6,14 @@
       "description": "Валюта, относительно которой оценивется курс."
     },
     {
-      "name": "app.id",
+      "name": "exchange.app.id",
       "type": "java.lang.String",
-      "description": "ID приложения необходимый для взаимодействия с внешними сервисами."
+      "description": "ID приложения необходимый для взаимодействия с внешним сервисом курса валют."
+    },
+    {
+      "name": "gif.app.id",
+      "type": "java.lang.String",
+      "description": "ID приложения необходимый для взаимодействия с внешним сервисом гифок."
     },
     {
       "name": "exchange.rate.url",
@@ -16,14 +21,9 @@
       "description": "Адрес сервиса-источника курсов валют."
     },
     {
-      "name": "gif.rich.url",
+      "name": "gif.url",
       "type": "java.lang.String",
-      "description": "Адрес сервиса-источника гифок, связанных с повышением курса."
-    },
-    {
-      "name": "gif.broke.url",
-      "type": "java.lang.String",
-      "description": "Адрес сервиса-источника гифок, связанных с понижением курса."
+      "description": "Адрес сервиса-источника гифок."
     }
   ]
 }
