@@ -1,0 +1,29 @@
+{
+  "properties": [
+    {
+      "name": "relative.which.currency",
+      "type": "java.lang.String",
+      "description": "Валюта, относительно которой оценивется курс."
+    },
+    {
+      "name": "app.id",
+      "type": "java.lang.String",
+      "description": "ID приложения необходимый для взаимодействия с внешними сервисами."
+    },
+    {
+      "name": "exchange.rate.url",
+      "type": "java.lang.String",
+      "description": "Адрес сервиса-источника курсов валют."
+    },
+    {
+      "name": "gif.rich.url",
+      "type": "java.lang.String",
+      "description": "Адрес сервиса-источника гифок, связанных с повышением курса."
+    },
+    {
+      "name": "gif.broke.url",
+      "type": "java.lang.String",
+      "description": "Адрес сервиса-источника гифок, связанных с понижением курса."
+    }
+  ]
+}
