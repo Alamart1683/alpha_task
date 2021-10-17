@@ -21,6 +21,8 @@ public class AlphaTaskService {
     private String exchangeAppId;
     @Value("${gif.app.id}")
     private String gifAppId;
+    @Value("${hours.ago}")
+    private Integer hoursAgo;
 
     private final CurrencyRateClient currencyRateClient;
     private final GifClient gifClient;
@@ -51,8 +53,8 @@ public class AlphaTaskService {
             return new UrlGifResponse(
                     currencyCode,
                     relativeWhichCurrency,
-                    today.getRates().get(currencyCode),
                     yesterday.getRates().get(currencyCode),
+                    today.getRates().get(currencyCode),
                     difference,
                     status,
                     giphyResponse.getData().getTitle(),
@@ -65,8 +67,8 @@ public class AlphaTaskService {
             return new UrlGifResponse(
                     currencyCode,
                     relativeWhichCurrency,
-                    today.getRates().get(currencyCode),
                     yesterday.getRates().get(currencyCode),
+                    today.getRates().get(currencyCode),
                     difference,
                     status,
                     giphyResponse.getData().getTitle(),
@@ -78,7 +80,7 @@ public class AlphaTaskService {
 
     private String getYesterdayDate() {
         // Так как текущий курс определяется за последние полные сутки
-        ZonedDateTime yesterday = ZonedDateTime.now().minusHours(48);
-        return  yesterday.getYear() + "-" + yesterday.getMonthValue() + "-" + yesterday.getDayOfMonth();
+        ZonedDateTime yesterday = ZonedDateTime.now().minusHours(hoursAgo);
+        return yesterday.getYear() + "-" + yesterday.getMonthValue() + "-" + yesterday.getDayOfMonth();
     }
 }

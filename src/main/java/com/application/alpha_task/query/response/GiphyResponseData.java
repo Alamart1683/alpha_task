@@ -1,12 +1,12 @@
 package com.application.alpha_task.query.response;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
 import java.util.HashMap;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class GiphyResponseData {
     private String type;
     private String id;

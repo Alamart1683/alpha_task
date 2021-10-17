@@ -24,6 +24,11 @@
       "name": "gif.url",
       "type": "java.lang.String",
       "description": "Адрес сервиса-источника гифок."
+    },
+    {
+      "name": "hours.ago",
+      "type": "java.lang.Integer",
+      "description": "Время, по которому анализруется предыдущий курс. По умолчанию 24 часа назад (Вчерашний день)."
     }
   ]
 }
